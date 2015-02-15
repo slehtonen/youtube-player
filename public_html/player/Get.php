@@ -17,20 +17,20 @@ class Get {
 
         $this->sql = "SELECT * FROM playlist WHERE status = 'NOW' LIMIT 1";
 
-        if ($this->isQueryNotEmpty) {
+        if ($this->isQueryNotEmpty()) {
             $this->setStatusToPlaying();
             $this->setPlayListPositionToZero();
         } else {
             return false;
         }
     }
-    
+
     public function playNext() {
 
         $this->sql = "SELECT * FROM playlist WHERE queue IN (SELECT MIN(queue) 
                 FROM playlist WHERE queue != 0) LIMIT 1";
 
-        if ($this->isQueryNotEmpty) {
+        if ($this->isQueryNotEmpty()) {
             $this->setPlayListPositionToZero();
         } else {
             return false;
