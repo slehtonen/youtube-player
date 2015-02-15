@@ -1,2 +1,14 @@
 # youtube-player
-Raspberry pie project which works on any web server. Turns the server into youtube jukebox which playes videos / music on demand on tv or stereo which the server is connected to.
+Raspberry pie project which turns the pi into youtube jukebox which plays 
+Youtube videos on demand.
+
+It uses omxplayer to play videos and uses the hdmi to send the output to tv or 
+stereo.
+
+Dependencies:
+
+Apache server with php and MySQL
+Omxplayer
+youtube-dl
+
+
