@@ -2,48 +2,22 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-require_once("Insert.php");
-require_once("Get.php");
+require_once("Navigation.php");
 
 $mode = $_POST['m'];
+$navi = new Navigation;
 
 if ($mode == "add") {
-    add();
+    $navi->add($_POST['url']);
 }
 else if ($mode == "playnow") {
-    playnow();
+    $navi->playnow();
 }
 else if ($mode == "next") {
-    playNext();
+    $navi->playNext();
 }
-
-function add() {
-    $url = $_POST['url'];
-
-    $insert = new Insert;
-
-    $insert->url = $url;
-    $insert->status = "NOW";
-    $insert->insert();
-}
-
-function playnow() {
-    $video = new Get;
-    longOrShortUrl($video, $video->playNow());
-}
-
-function playNext() {
-    $video = new Get;
-    longOrShortUrl($video, $video->playNext());
-}
-
-function longOrShortUrl($video, $videoToPlayNow) {
-    if ($videoToPlayNow !== false) {
-        echo $video->url;
-    }
-    else {
-        echo "e";
-    }
+else {
+    echo "error";
 }
 
 ?>
