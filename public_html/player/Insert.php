@@ -14,14 +14,14 @@ class Insert {
     }
 
     public function insert() {
-
-        $this->db->sql = "INSERT INTO playlist (queue, url, status) SELECT(SELECT MAX(queue)+1 from playlist), '$this->url', '$this->status' ";
-
-        $this->db->makeQuery();
-    }
-
-    public function saveLongUrl() {
-        $this->db->sql = "UPDATE playlist SET long_url = '$this->longurl' WHERE url = '$this->url' ";
+        $this->db->sql = "
+        INSERT INTO playlist (queue, url, status) 
+        SELECT(
+            SELECT MAX(queue)+1 from playlist
+        ), 
+        '$this->url',
+        '$this->status'";
+        
         $this->db->makeQuery();
     }
 }
