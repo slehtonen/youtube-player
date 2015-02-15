@@ -13,12 +13,12 @@ class Navigation {
 
     public function playnow() {
         $video = new Get;
-        printUrlOrError($video, $video->playNow());
+        $this->printUrlOrError($video, $video->playNow());
     }
 
     public function playNext() {
         $video = new Get;
-        printUrlOrError($video, $video->playNext());
+        $this->printUrlOrError($video, $video->playNext());
     }
 
     private function printUrlOrError($video, $videoToPlayNow) {
